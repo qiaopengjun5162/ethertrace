@@ -1,0 +1,29 @@
+[project]
+name = "ethertrace"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "ruff>=0.11.7",
+    "web3>=7.10.0",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=8.3.5",
+    "pytest-cov>=6.1.1",
+    "web3>=7.10.0",
+]
+
+[tool.pytest.ini_options]
+addopts = "--cov=. --cov-report=term-missing --cov-report=html"
+testpaths = ["tests"]                                     # 指定测试目录
+python_files = "test_*.py"
+pythonpath = "."
+filterwarnings = [
+    "ignore::DeprecationWarning:websockets[.*]:",
+]
+
+[tool.coverage.run]
+omit = ["main.py"] # 忽略无需覆盖的文件
