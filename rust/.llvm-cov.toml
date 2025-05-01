@@ -1,0 +1,4 @@
+[llvm-cov]
+exclude = [
+    "src/main.rs:main", # 忽略 main 函数
+]
